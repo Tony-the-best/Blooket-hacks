@@ -1,19 +1,16 @@
-# Pirate's Voyage
+# Santa's Workshop
 
-## [Heist ESP](heistESP.js)
-Shows you what's under each chest during a heist
+## [Remove Distractions](removeDistractions.js)
+Removes all enemy distractions
 
-## [Max Levels](maxLevels.js)
-Maxes out all islands and your boat
+## [Send Distraction](sendDistraction.js)
+Sends a random distraction
 
-## [Set Doubloons](setDoubloons.js)
-Sets the amount of doubloons you have
+## [Set Toys](setToys.js)
+Sets the amount of toys you have
 
-## [Start Heist](startHeist.js)
-Starts a heist on someone
+## [Set Toys Per Q](setToysPerQ.js)
+Sets the amount of toys you get per question
 
-## [Swap Doubloons](swapDoubloons.js)
-Swaps doubloons with someone
-
-## [Take Doubloons](takeDoubloons.js)
-Takes doubloons from someone
+## [Swap Toys](swapToys.js)
+Swaps toys with someone

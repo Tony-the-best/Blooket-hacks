@@ -34,22 +34,13 @@
             if (!arguments[1].includes("s.blooket.com/rc")) return call.apply(this, arguments);
         }
     }
-    const timeProcessed = 1730769914014;
+    const timeProcessed = 1730769913948;
     let latestProcess = -1;
     const cheat = (async () => {
-        let i = document.createElement('iframe');
-        document.body.append(i);
-        window.alert = i.contentWindow.alert.bind(window);
-        i.remove();
-        let { stateNode } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
-        let distractions = { c: "Oh Canada", b: "Blizzard", f: "Fog Spell", d: "Dark & Dusk", w: "Howling Wind", g: "Gift Time!", t: "TREES", s: "Snow Plow", fr: "Use The Force" };
-        let val = Object.keys(distractions)[Math.floor(Math.random() * 9)];
-        stateNode.safe = true;
-        stateNode.props.liveGameController.setVal({ path: `c/${stateNode.props.client.name}/tat`, val });
-        alert(`Sent a ${distractions[val]} distraction`);
+        Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner.stateNode.setState({ fog: !1, dusk: !1, wind: !1, plow: !1, blizzard: !1, force: !1, canada: !1, trees: [!1, !1, !1, !1, !1, !1, !1, !1, !1, !1] });
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Blooket-Council/Blooket-Cheats/main/autoupdate/timestamps/workshop/sendDistraction.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Blooket-Council/Blooket-Cheats/main/autoupdate/timestamps/workshop/removeDistractions.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");

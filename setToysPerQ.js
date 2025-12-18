@@ -34,22 +34,17 @@
             if (!arguments[1].includes("s.blooket.com/rc")) return call.apply(this, arguments);
         }
     }
-    const timeProcessed = 1730769914014;
+    const timeProcessed = 1730769914169;
     let latestProcess = -1;
     const cheat = (async () => {
         let i = document.createElement('iframe');
         document.body.append(i);
-        window.alert = i.contentWindow.alert.bind(window);
+        window.prompt = i.contentWindow.prompt.bind(window);
         i.remove();
-        let { stateNode } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
-        let distractions = { c: "Oh Canada", b: "Blizzard", f: "Fog Spell", d: "Dark & Dusk", w: "Howling Wind", g: "Gift Time!", t: "TREES", s: "Snow Plow", fr: "Use The Force" };
-        let val = Object.keys(distractions)[Math.floor(Math.random() * 9)];
-        stateNode.safe = true;
-        stateNode.props.liveGameController.setVal({ path: `c/${stateNode.props.client.name}/tat`, val });
-        alert(`Sent a ${distractions[val]} distraction`);
+        Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner.stateNode.setState({ toysPerQ: parseInt(prompt("How many toys per question would you like?")) || 0 });
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Blooket-Council/Blooket-Cheats/main/autoupdate/timestamps/workshop/sendDistraction.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Blooket-Council/Blooket-Cheats/main/autoupdate/timestamps/workshop/setToysPerQ.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
