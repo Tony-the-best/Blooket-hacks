@@ -34,19 +34,13 @@
             if (!arguments[1].includes("s.blooket.com/rc")) return call.apply(this, arguments);
         }
     }
-    const timeProcessed = 1730769905190;
+    const timeProcessed = 1730769911134;
     let latestProcess = -1;
     const cheat = (async () => {
-        let i = document.createElement('iframe');
-        document.body.append(i);
-        window.alert = i.contentWindow.alert.bind(window);
-        i.remove();
-        const { stateNode } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
-        if (stateNode.state.phase == 'select') stateNode.setState({ myCard: Object.assign(Object.assign({}, stateNode.state.myCard), { strength: 20, charisma: 20, wisdom: 20 }) });
-        else alert('You must be on the attribute selection page!');
+        Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner.stateNode.setState({ materials: 100, people: 100, happiness: 100, gold: 100 });
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Blooket-Council/Blooket-Cheats/main/autoupdate/timestamps/doom/maxStats.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Blooket-Council/Blooket-Cheats/main/autoupdate/timestamps/kingdom/maxStats.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");

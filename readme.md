@@ -1,16 +1,16 @@
-# Fishing Frenzy
+# Santa's Workshop
 
-## [Frenzy](frenzy.js)
-Causes a frenzy
-
-## [Remove Distraction](removeDistraction.js)
-Removes enemy distractions
+## [Remove Distractions](removeDistractions.js)
+Removes all enemy distractions
 
 ## [Send Distraction](sendDistraction.js)
 Sends a random distraction
 
-## [Set Lure](setLure.js)
-Sets fishing lure (from 1-5)
+## [Set Toys](setToys.js)
+Sets the amount of toys you have
 
-## [Set Weight](setWeight.js)
-Sets fishing weight
+## [Set Toys Per Q](setToysPerQ.js)
+Sets the amount of toys you get per question
+
+## [Swap Toys](swapToys.js)
+Swaps toys with someone
