@@ -62,7 +62,7 @@ function footer() {
 
 footer();
  
-javascript:(function() {
+(function() {
     'use strict';
 (() => {
     let iframe = document.querySelector("iframe");
