@@ -1,16 +1,19 @@
-# Fishing Frenzy
+# Pirate's Voyage
 
-## [Frenzy](frenzy.js)
-Causes a frenzy
+## [Heist ESP](heistESP.js)
+Shows you what's under each chest during a heist
 
-## [Remove Distraction](removeDistraction.js)
-Removes enemy distractions
+## [Max Levels](maxLevels.js)
+Maxes out all islands and your boat
 
-## [Send Distraction](sendDistraction.js)
-Sends a random distraction
+## [Set Doubloons](setDoubloons.js)
+Sets the amount of doubloons you have
 
-## [Set Lure](setLure.js)
-Sets fishing lure (from 1-5)
+## [Start Heist](startHeist.js)
+Starts a heist on someone
 
-## [Set Weight](setWeight.js)
-Sets fishing weight
+## [Swap Doubloons](swapDoubloons.js)
+Swaps doubloons with someone
+
+## [Take Doubloons](takeDoubloons.js)
+Takes doubloons from someone

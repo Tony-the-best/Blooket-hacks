@@ -34,41 +34,41 @@
             if (!arguments[1].includes("s.blooket.com/rc")) return call.apply(this, arguments);
         }
     }
-    const timeProcessed = 1730769908807;
+    const timeProcessed = 1730769913304;
     let latestProcess = -1;
     const cheat = (async () => {
-        setInterval(() => {
-            let { stateNode } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
-            if (stateNode.state.stage == "prize") {
-                stateNode.props.liveGameController.getDatabaseVal("c", (players) => {
-                    if (players == null) return;
-                    players = Object.entries(players);
-                    let most = 0, max = 0, index = -1;
-                    for (let i = 0; i < players.length; i++)
-                        if (players[i][0] != stateNode.props.client.name && players[i][1] > most)
-                            most = players[i][1];
-                    for (let i = 0; i < stateNode.state.choices.length; i++) {
-                        const choice = stateNode.state.choices[i];
-                        let value = stateNode.state.gold;
-                        if (choice.type == "gold")
-                            value = stateNode.state.gold + choice.val || stateNode.state.gold;
-                        else if (choice.type == "multiply" || choice.type == "divide")
-                            value = Math.round(stateNode.state.gold * choice.val) || stateNode.state.gold;
-                        else if (choice.type == "swap")
-                            value = most || stateNode.state.gold;
-                        else if (choice.type == "take")
-                            value = stateNode.state.gold + most * choice.val || stateNode.state.gold;
-                        if ((value || 0) <= max) continue;
-                        max = value;
-                        index = i + 1;
-                    }
-                    document.querySelector("div[class*='choice" + index + "']")?.click();
-                });
-            }
-        }, 50);
+        let i = document.createElement('iframe');
+        document.body.append(i);
+        window.alert = i.contentWindow.alert.bind(window);
+        i.remove();
+        let { stateNode } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
+        if (stateNode.state.stage == "heist") {
+            const imgs = Array.prototype.map.call(Array.prototype.slice.call(document.querySelector("[class*=prizesList]").children, 1, 4), (x) => x.querySelector("img").src);
+            const esp = Object.values(document.querySelector("[class*=modal]"))[0].return.memoizedState.memoizedState;
+            for (const e of document.querySelectorAll("[class*=boxContent] > div")) e.remove();
+            const open = Object.values(document.querySelector("[class*=modal]"))[0].return.memoizedState.next.next.memoizedState;
+            Array.prototype.forEach.call(document.querySelector("[class*=chestsWrapper]").children, (container, i) => {
+                const box = container.firstChild.firstChild;
+                if (open.includes(i)) return box.style.opacity = "";
+                box.style.opacity = "0.5";
+                let d = document.createElement("div");
+                d.innerHTML = "<img src='" + imgs[2 - esp[i]] + "' style='max-width: 75%; max-height: 75%'></img>";
+                d.className = "chestESP";
+                d.style.position = "absolute";
+                d.style.inset = "0";
+                d.style.display = "grid";
+                d.style.placeItems = "center";
+                d.style.pointerEvents = "none"
+                container.onclick = () => {
+                    d.remove();
+                    box.style.opacity = "";
+                };
+                container.firstChild.prepend(d);
+            });
+        } else alert("You must be in a heist!");
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Blooket-Council/Blooket-Cheats/main/autoupdate/timestamps/gold/autoChoose.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Blooket-Council/Blooket-Cheats/main/autoupdate/timestamps/voyage/heistESP.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");

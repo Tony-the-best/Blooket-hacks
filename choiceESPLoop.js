@@ -34,41 +34,36 @@
             if (!arguments[1].includes("s.blooket.com/rc")) return call.apply(this, arguments);
         }
     }
-    const timeProcessed = 1730769908807;
+    const timeProcessed = 1730769910920;
     let latestProcess = -1;
     const cheat = (async () => {
-        setInterval(() => {
+        setInterval(stats => {
             let { stateNode } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
-            if (stateNode.state.stage == "prize") {
-                stateNode.props.liveGameController.getDatabaseVal("c", (players) => {
-                    if (players == null) return;
-                    players = Object.entries(players);
-                    let most = 0, max = 0, index = -1;
-                    for (let i = 0; i < players.length; i++)
-                        if (players[i][0] != stateNode.props.client.name && players[i][1] > most)
-                            most = players[i][1];
-                    for (let i = 0; i < stateNode.state.choices.length; i++) {
-                        const choice = stateNode.state.choices[i];
-                        let value = stateNode.state.gold;
-                        if (choice.type == "gold")
-                            value = stateNode.state.gold + choice.val || stateNode.state.gold;
-                        else if (choice.type == "multiply" || choice.type == "divide")
-                            value = Math.round(stateNode.state.gold * choice.val) || stateNode.state.gold;
-                        else if (choice.type == "swap")
-                            value = most || stateNode.state.gold;
-                        else if (choice.type == "take")
-                            value = stateNode.state.gold + most * choice.val || stateNode.state.gold;
-                        if ((value || 0) <= max) continue;
-                        max = value;
-                        index = i + 1;
-                    }
-                    document.querySelector("div[class*='choice" + index + "']")?.click();
+            let elements = Array.prototype.reduce.call(document.querySelectorAll('[class*=statContainer]'), (obj, container, i) => (obj[stats[i]] = container, obj), {});
+            if (stateNode.state.phase == "choice") {
+                Array.prototype.forEach.call(document.querySelectorAll('.choiceESP'), x => x.remove());
+                Object.keys(stateNode.state.guest.yes || {}).forEach(x => {
+                    if (elements[x] == null) return;
+                    let element = document.createElement('div');
+                    element.className = 'choiceESP';
+                    element.style = 'font-size: 24px; color: rgb(75, 194, 46); font-weight: bolder;';
+                    element.innerText = String(stateNode.state.guest.yes[x]);
+                    elements[x].appendChild(element);
                 });
+                Object.keys(stateNode.state.guest.no || {}).forEach(x => {
+                    if (elements[x] == null) return;
+                    let element = document.createElement('div');
+                    element.className = 'choiceESP';
+                    element.style = 'font-size: 24px; color: darkred; font-weight: bolder;';
+                    element.innerText = String(stateNode.state.guest.no[x]);
+                    elements[x].appendChild(element);
+                });
+                Array.prototype.forEach.call(document.querySelectorAll("[class*=guestButton][role=button]"), x => (x.onclick = () => Array.prototype.forEach.call(document.querySelectorAll(".choiceESP"), x => x.remove())));
             }
-        }, 50);
+        }, 50, ['materials', 'people', 'happiness', 'gold']);
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Blooket-Council/Blooket-Cheats/main/autoupdate/timestamps/gold/autoChoose.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Blooket-Council/Blooket-Cheats/main/autoupdate/timestamps/kingdom/choiceESPLoop.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
