@@ -34,13 +34,20 @@
             if (!arguments[1].includes("s.blooket.com/rc")) return call.apply(this, arguments);
         }
     }
-    const timeProcessed = 1730769903666;
+    const timeProcessed = 1730769908732;
     let latestProcess = -1;
     const cheat = (async () => {
-        window.setInterval(state => Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner.stateNode.setState(state), 25, { choices: [{ type: "mult", val: 3, rate: 0.075, blook: "Brainy Bot", text: "Triple Crypto" }] });
+        let { stateNode } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
+        stateNode.state.gold == 0 && stateNode.setState({ gold: 100, gold2: 100 });
+        stateNode._choosePrize ||= stateNode.choosePrize;
+        const triple = { type: "multiply", val: 3, text: "Triple Gold!", blook: "Unicorn" };
+        stateNode.choosePrize = function (i) {
+            stateNode.state.choices[i] = triple;
+            stateNode._choosePrize(i);
+        }
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Blooket-Council/Blooket-Cheats/main/autoupdate/timestamps/crypto/alwaysTriple.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Blooket-Council/Blooket-Cheats/main/autoupdate/timestamps/gold/alwaysTriple.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");

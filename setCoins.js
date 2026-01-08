@@ -34,20 +34,17 @@
             if (!arguments[1].includes("s.blooket.com/rc")) return call.apply(this, arguments);
         }
     }
-    const timeProcessed = 1730769905518;
+    const timeProcessed = 1730769912991;
     let latestProcess = -1;
     const cheat = (async () => {
         let i = document.createElement('iframe');
         document.body.append(i);
-        window.alert = i.contentWindow.prompt.bind(window);
+        window.prompt = i.contentWindow.prompt.bind(window);
         i.remove();
-        if (window.location.pathname == "/tower/battle") try {
-            Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner.stateNode.props.setTowerCoins(parseInt(prompt("How many coins would you like?")) || 0);
-        } catch { }
-        else alert("You need to be in battle to run this cheat!");
+        Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner.stateNode.setState({ coins: parseInt(prompt("How many tokens would you like?")) || 0 });
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Blooket-Council/Blooket-Cheats/main/autoupdate/timestamps/doom/setCoins.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Blooket-Council/Blooket-Cheats/main/autoupdate/timestamps/tower-defense-2/setCoins.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
